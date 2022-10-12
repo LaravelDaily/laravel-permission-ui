@@ -27,10 +27,6 @@ abstract class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix'   => '',
         ]);
-        $app['config']->set('view.paths', array_merge(
-            $app['config']->get('view.paths'),
-            [__DIR__ . '/../resources/views'],
-        ));
     }
 
     protected function getPackageProviders($app): array
