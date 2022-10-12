@@ -4,25 +4,27 @@ namespace LaravelDaily\PermissionsUI\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $roles = Role::with('permissions')->get();
 
         return view('PermissionsUI::roles.index', compact('roles'));
     }
 
-    public function create() {
+    public function create(): View
+    {
         $permissions = Permission::pluck('name', 'id');
 
         return view('PermissionsUI::roles.create', compact('permissions'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => ['required', 'string'],
@@ -36,14 +38,14 @@ class RoleController extends Controller
         return redirect()->route(config('permissions.route_name_prefix') . 'roles.index');
     }
 
-    public function edit(Role $role)
+    public function edit(Role $role): View
     {
         $permissions = Permission::pluck('name', 'id');
 
         return view('PermissionsUI::roles.edit', compact('role', 'permissions'));
     }
 
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Role $role): RedirectResponse
     {
         $request->validate([
             'name' => ['required', 'string'],
@@ -57,7 +59,7 @@ class RoleController extends Controller
         return redirect()->route(config('permissions.route_name_prefix') . 'roles.index');
     }
 
-    public function destroy(Role $role)
+    public function destroy(Role $role): RedirectResponse
     {
         $role->delete();
 

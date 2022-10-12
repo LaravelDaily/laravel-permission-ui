@@ -9,7 +9,7 @@
         <table class="w-full table-auto rounded-xl border border-gray-300 bg-white text-left shadow-sm divide-y">
             <thead>
                 <tr class="bg-gray-500/5">
-                    <th class="px-4">{{ __('permissions.permissions.fields.id') }}</th>
+                    <th class="px-4">{{ __('PermissionsUI::permissions.permissions.fields.id') }}</th>
                     <th>{{ __('PermissionsUI::permissions.permissions.fields.name') }}</th>
                     <th>{{ __('PermissionsUI::permissions.permissions.fields.created_at') }}</th>
                     <th></th>
@@ -31,7 +31,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button class="rounded-md bg-gray-800 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700" type="submit" onclick="return confirm({{ __('PermissionsUI::permissions.global.confirm_action') }})">
-                                    {{ __('permissions.global.delete') }}
+                                    {{ __('PermissionsUI::permissions.global.delete') }}
                                 </button>
                             </form>
                         </td>

@@ -30,7 +30,7 @@
                         <td>{{ $role->created_at }}</td>
                         <td class="px-4 divide-x-2">
                             <a class="rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700" href="{{ route(config('permissions.route_name_prefix') . 'roles.edit', $role) }}">
-                                {{ __('permissions.global.edit') }}
+                                {{ __('PermissionsUI::permissions.global.edit') }}
                             </a>
 
                             <form action="{{ route(config('permissions.route_name_prefix') . 'roles.destroy', $role) }}" method="POST" style="display: inline-block;">

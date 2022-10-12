@@ -4,25 +4,28 @@ namespace LaravelDaily\PermissionsUI\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $permissions = Permission::all();
 
-        return view('permissions.permissions.index', compact('permissions'));
+        return view('PermissionsUI::permissions.index', compact('permissions'));
     }
 
-    public function create() {
+    public function create(): View
+    {
         $roles = Role::pluck('name', 'id');
 
-        return view('permissions.permissions.create', compact('roles'));
+        return view('PermissionsUI::permissions.create', compact('roles'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request): RedirectResponse
+    {
         $data = $request->validate([
             'name' => ['required', 'string'],
             'roles' => ['array'],
@@ -35,13 +38,14 @@ class PermissionController extends Controller
         return redirect()->route(config('permissions.route_name_prefix') . 'permissions.index');
     }
 
-    public function edit(Permission $permission) {
+    public function edit(Permission $permission): View
+    {
         $roles = Role::pluck('name', 'id');
 
-        return view('permissions.permissions.edit', compact('permission', 'roles'));
+        return view('PermissionsUI::permissions.edit', compact('permission', 'roles'));
     }
 
-    public function update(Request $request, Permission $permission)
+    public function update(Request $request, Permission $permission): RedirectResponse
     {
         $data = $request->validate([
             'name' => ['required', 'string'],
@@ -55,7 +59,7 @@ class PermissionController extends Controller
         return redirect()->route(config('permissions.route_name_prefix') . 'permissions.index');
     }
 
-    public function destroy(Permission $permission)
+    public function destroy(Permission $permission): RedirectResponse
     {
         $permission->delete();
 
