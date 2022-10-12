@@ -2,11 +2,12 @@
 
 return [
     'global' => [
-        'create'     => 'Create',
-        'edit'       => 'Edit',
-        'delete'     => 'Delete',
-        'save'       => 'Save',
-        'no_records' => 'No records.',
+        'create'         => 'Create',
+        'edit'           => 'Edit',
+        'delete'         => 'Delete',
+        'save'           => 'Save',
+        'no_records'     => 'No records.',
+        'confirm_action' => 'Are you sure?',
     ],
 
     'permissions' => [
