@@ -11,7 +11,7 @@
     </testsuite>
   </testsuites>
   <php>
-    <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
+    <env name="APP_KEY" value="base64:aZVH1lLHjIybsKFBazX7zIY5hCQr07o/8AOLmbbQbFE="/>
     <env name="CACHE_DRIVER" value="array"/>
   </php>
 </phpunit>
