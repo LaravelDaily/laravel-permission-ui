@@ -23,21 +23,6 @@ class PermissionsTest extends TestCase
         $this->assertTrue(Role::first()->hasPermissionTo($permission));
     }
 
-    public function testUserCanBeAssignedRole()
-    {
-        $user = User::factory()->create();
-
-        $role = Role::create(['name' => 'admin']);
-
-        $response = $this->actingAs($user)->patch(route(config('permissions.route_name_prefix') . 'users.update', $user), [
-            'roles' => [$role->id],
-        ]);
-
-        $response->assertRedirect(route(config('permissions.route_name_prefix') . 'users.index'));
-
-        $this->assertTrue($user->hasRole($role));
-    }
-
     public function testPermissionsShowsOnCreateAndEditRolePages()
     {
         $user = User::factory()->create();
