@@ -9,6 +9,13 @@ use LaravelDaily\PermissionsUI\Tests\Models\User;
 
 class PermissionsTest extends TestCase
 {
+    public function testRedirectUrlPrefixToUsersList()
+    {
+        $response = $this->actingAs(User::factory()->create())->get(config('permissions.url_prefix'));
+
+        $response->assertRedirect(route(config('permissions.route_name_prefix') . 'users.index'));
+    }
+
     public function testPermissionCanBeAttachedToRole()
     {
         $permission = Permission::create(['name' => 'permission']);
