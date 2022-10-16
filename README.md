@@ -16,7 +16,7 @@ composer require laraveldaily/laravel-permissions-ui
 
 Go to `yourdomain.com/permissions` and you should see a simple dashboard with three menu items on top: to manage roles, permissions and assign them to users.
 
-![Spatie Permissions UI](https://laraveldaily.com/uploads/2022/10/Screenshot 2022-10-16 at 21.14.42.png)
+![Spatie Permissions UI](https://laraveldaily.com/uploads/2022/10/laravel-permission-ui.png)
 
 That dashboard is by default protected by the `auth` middleware, but you can configure it, by publishing the config:
 
