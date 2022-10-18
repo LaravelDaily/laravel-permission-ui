@@ -8,7 +8,7 @@ class PermissionsUIServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/permissions.php', 'permissions');
+        $this->mergeConfigFrom(__DIR__ . '/../config/permission-ui.php', 'permission-ui');
     }
 
     public function boot()
@@ -20,11 +20,11 @@ class PermissionsUIServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'PermissionsUI');
 
         // registering lang
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'PermissionsUI');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'PermissionsUI');
 
         // publish config
         $this->publishes([
-            __DIR__ . '/../config/permissions.php' => config_path('permissions.php'),
-        ], 'config');
+            __DIR__ . '/../config/permission-ui.php' => config_path('permission-ui.php'),
+        ], 'permission-ui-config');
     }
 }
