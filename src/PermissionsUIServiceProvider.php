@@ -25,6 +25,6 @@ class PermissionsUIServiceProvider extends ServiceProvider
         // publish config
         $this->publishes([
             __DIR__ . '/../config/permission-ui.php' => config_path('permission-ui.php'),
-        ], 'permission-ui-config');
+        ], 'config');
     }
 }
