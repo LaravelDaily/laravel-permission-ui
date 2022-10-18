@@ -32,6 +32,6 @@ class UserController extends Controller
 
         $user->syncRoles($request->input('roles'));
 
-        return redirect()->route(config('permissions.route_name_prefix') . 'users.index');
+        return redirect()->route(config('permission_ui.route_name_prefix') . 'users.index');
     }
 }
