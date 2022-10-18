@@ -8,7 +8,7 @@ class PermissionsUIServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/permission-ui.php', 'permission-ui');
+        $this->mergeConfigFrom(__DIR__ . '/../config/permission-ui.php', 'permission_ui');
     }
 
     public function boot()
@@ -24,7 +24,7 @@ class PermissionsUIServiceProvider extends ServiceProvider
 
         // publish config
         $this->publishes([
-            __DIR__ . '/../config/permission-ui.php' => config_path('permission-ui.php'),
+            __DIR__ . '/../config/permission_ui.php' => config_path('permission_ui.php'),
         ], 'config');
     }
 }
