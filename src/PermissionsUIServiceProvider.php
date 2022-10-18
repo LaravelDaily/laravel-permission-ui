@@ -26,5 +26,10 @@ class PermissionsUIServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/permissions.php' => config_path('permissions.php'),
         ], 'config');
+
+        // publish assets
+        $this->publishes([
+        __DIR__ . '/../public' => public_path('vendor/permission_ui'),
+        ], ['permission_ui-assets', 'laravel-assets']);
     }
 }
