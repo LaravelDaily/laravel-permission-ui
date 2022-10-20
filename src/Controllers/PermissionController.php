@@ -35,7 +35,7 @@ class PermissionController extends Controller
 
         $permission->syncRoles($request->input('roles'));
 
-        return redirect()->route(config('permissions.route_name_prefix') . 'permissions.index');
+        return redirect()->route(config('permission_ui.route_name_prefix') . 'permissions.index');
     }
 
     public function edit(Permission $permission): View
@@ -56,13 +56,13 @@ class PermissionController extends Controller
 
         $permission->syncRoles($request->input('roles'));
 
-        return redirect()->route(config('permissions.route_name_prefix') . 'permissions.index');
+        return redirect()->route(config('permission_ui.route_name_prefix') . 'permissions.index');
     }
 
     public function destroy(Permission $permission): RedirectResponse
     {
         $permission->delete();
 
-        return redirect()->route(config('permissions.route_name_prefix') . 'permissions.index');
+        return redirect()->route(config('permission_ui.route_name_prefix') . 'permissions.index');
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="mb-4 flex">
-        <a class="rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700" href="{{ route(config('permissions.route_name_prefix') . 'permissions.create') }}">{{ __('PermissionsUI::permissions.global.create') }}</a>
+        <a class="rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700" href="{{ route(config('permission_ui.route_name_prefix') . 'permissions.create') }}">{{ __('PermissionsUI::permissions.global.create') }}</a>
     </div>
 
     <div class="overflow-x-auto">
@@ -23,11 +23,11 @@
                         <td>{{ $permission->name }}</td>
                         <td>{{ $permission->created_at }}</td>
                         <td class="px-4 divide-x-2">
-                            <a class="rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700" href="{{ route(config('permissions.route_name_prefix') . 'permissions.edit', $permission) }}">
+                            <a class="rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700" href="{{ route(config('permission_ui.route_name_prefix') . 'permissions.edit', $permission) }}">
                                 {{ __('PermissionsUI::permissions.global.edit') }}
                             </a>
 
-                            <form action="{{ route('permissions.permissions.destroy', $permission) }}" method="POST" style="display: inline-block;">
+                            <form action="{{ route(config('permission_ui.route_name_prefix') . 'permissions.destroy', $permission) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button class="rounded-md bg-gray-800 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700" type="submit" onclick="return confirm({{ __('PermissionsUI::permissions.global.confirm_action') }})">
