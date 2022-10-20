@@ -7,6 +7,9 @@
 
     <title>Permissions - {{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     @vite('resources/css/app.css')
 </head>
 <body class="h-full bg-gray-100 p-5">
