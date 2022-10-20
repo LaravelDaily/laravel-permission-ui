@@ -1,8 +1,8 @@
 {
-    "name": "laraveldaily/laravel-permissions-ui",
+    "name": "laraveldaily/laravel-permission-ui",
     "description": "A Laravel package for adding UI for spatie/Laravel-permission package.",
     "type": "library",
-    "homepage": "https://github.com/LaravelDaily/laravel-permissions-ui",
+    "homepage": "https://github.com/LaravelDaily/laravel-permission-ui",
     "license": "MIT",
     "authors": [
         {
