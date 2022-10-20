@@ -22,9 +22,13 @@ class PermissionsUIServiceProvider extends ServiceProvider
         // registering lang
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'PermissionsUI');
 
+        $this->publishes([
+            __DIR__.'/../lang' => $this->app->langPath('vendor/permission_ui'),
+        ], 'lang');
+
         // publish config
         $this->publishes([
             __DIR__ . '/../config/permission_ui.php' => config_path('permission_ui.php'),
-        ], 'permission_ui-config');
+        ], 'config');
     }
 }
