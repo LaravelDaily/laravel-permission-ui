@@ -11,7 +11,7 @@ This package will create a simple Dashboard for managing roles/permissions based
 First, before installing this package, you need to have the `spatie/laravel-permission` installed and configured.
 
 ```sh
-composer require laraveldaily/laravel-permissions-ui
+composer require laraveldaily/laravel-permission-ui
 ```
 
 Go to `yourdomain.com/permissions` and you should see a simple dashboard with three menu items on top: to manage roles, permissions and assign them to users.
