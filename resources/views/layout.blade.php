@@ -7,7 +7,7 @@
 
     <title>Permissions - {{ config('app.name', 'Laravel') }}</title>
 
-    @vite('resources/css/app.css')
+    @vite('resources/css/app.css', 'vendor/permission_ui/build')
 </head>
 <body class="h-full bg-gray-100 p-5">
     <main class="mx-auto max-w-7xl rounded-lg bg-white p-5 shadow-md space-y-4">

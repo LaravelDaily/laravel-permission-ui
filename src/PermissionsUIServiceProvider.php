@@ -22,6 +22,7 @@ class PermissionsUIServiceProvider extends ServiceProvider
         // registering lang
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'PermissionsUI');
 
+        // publish lang
         $this->publishes([
             __DIR__.'/../lang' => $this->app->langPath('vendor/permission_ui'),
         ], 'lang');
@@ -30,5 +31,10 @@ class PermissionsUIServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/permission_ui.php' => config_path('permission_ui.php'),
         ], 'config');
+
+        // publish assets
+        $this->publishes([
+        __DIR__ . '/../public' => public_path('vendor/permission_ui'),
+        ], ['permission_ui-assets', 'laravel-assets']);
     }
 }

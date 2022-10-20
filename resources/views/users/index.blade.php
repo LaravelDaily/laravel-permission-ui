@@ -39,5 +39,11 @@
                 @endforelse
             </tbody>
         </table>
+
+        @if($users->links())
+            <div class="mt-4">
+                {{ $users->links() }}
+            </div>
+        @endif
     </div>
 @endsection
