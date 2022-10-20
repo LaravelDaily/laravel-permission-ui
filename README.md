@@ -1,4 +1,4 @@
-## Laravel Permissions UI
+## Laravel Permission UI
 
 This package will create a simple Dashboard for managing roles/permissions based on the [spatie/laravel-permission](https://github.com/spatie/laravel-permission) package.
 
@@ -16,7 +16,7 @@ composer require laraveldaily/laravel-permissions-ui
 
 Go to `yourdomain.com/permissions` and you should see a simple dashboard with three menu items on top: to manage roles, permissions and assign them to users.
 
-![Spatie Permissions UI](https://laraveldaily.com/uploads/2022/10/laravel-permission-ui.png)
+![Spatie Permission UI](https://laraveldaily.com/uploads/2022/10/laravel-permission-ui.png)
 
 That dashboard is by default protected by the `auth` middleware, but you can configure it, by publishing the config:
 
@@ -24,13 +24,13 @@ That dashboard is by default protected by the `auth` middleware, but you can con
 php artisan vendor:publish --provider="LaravelDaily\PermissionsUI\PermissionsUIServiceProvider"
 ```
 
-And then edit the values in `config/permissions.php`:
+And then edit the values in `config/permission_ui.php`:
 
 ```php
 return [
     'middleware'        => ['web', 'auth'],
     'url_prefix'        => 'permissions',
-    'route_name_prefix' => 'permissions.',
+    'route_name_prefix' => 'permission_ui.',
 ];
 ```
 
