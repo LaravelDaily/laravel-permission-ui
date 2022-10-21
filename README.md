@@ -21,7 +21,7 @@ Go to `yourdomain.com/permissions` and you should see a simple dashboard with th
 That dashboard is by default protected by the `auth` middleware, but you can configure it, by publishing the config:
 
 ```sh
-php artisan vendor:publish --provider="LaravelDaily\PermissionsUI\PermissionsUIServiceProvider"
+php artisan vendor:publish --provider="LaravelDaily\PermissionsUI\PermissionsUIServiceProvider" --tag="config"
 ```
 
 And then edit the values in `config/permission_ui.php`:
@@ -36,6 +36,16 @@ return [
 
 The visual design is based on simple Tailwind classes. 
 At the moment, no visual customization options are available, but we may add them in the future, based on your ideas and feedback.
+
+---
+
+## Publishing translations
+
+If you wish to translate the package, you may publish the language files using:
+
+```sh
+php artisan vendor:publish --provider="LaravelDaily\PermissionsUI\PermissionsUIServiceProvider" --tag="lang"
+```
 
 - - - - -
 
