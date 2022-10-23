@@ -19,6 +19,11 @@ class PermissionsUIServiceProvider extends ServiceProvider
         // registering views
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'PermissionsUI');
 
+        // publish views
+        $this->publishes([
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/permission_ui'),
+        ], 'views');
+
         // registering lang
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'PermissionsUI');
 
@@ -32,9 +37,9 @@ class PermissionsUIServiceProvider extends ServiceProvider
             __DIR__ . '/../config/permission_ui.php' => config_path('permission_ui.php'),
         ], 'config');
 
-        // publish assets
+        // publish seed
         $this->publishes([
-        __DIR__ . '/../public' => public_path('vendor/permission_ui'),
-        ], ['permission_ui-assets', 'laravel-assets']);
+            __DIR__ . '/../database/seeders' => database_path('seeders'),
+        ], 'seeds');
     }
 }

@@ -14,20 +14,20 @@ class RoleController extends Controller
     {
         $roles = Role::with('permissions')->get();
 
-        return view('PermissionsUI::roles.index', compact('roles'));
+        return view('PermissionsUI::' . config('permission_ui.layout') . '.roles.index', compact('roles'));
     }
 
     public function create(): View
     {
         $permissions = Permission::pluck('name', 'id');
 
-        return view('PermissionsUI::roles.create', compact('permissions'));
+        return view('PermissionsUI::' . config('permission_ui.layout') . '.roles.create', compact('permissions'));
     }
 
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string'],
+            'name'        => ['required', 'string'],
             'permissions' => ['array'],
         ]);
 
@@ -42,13 +42,13 @@ class RoleController extends Controller
     {
         $permissions = Permission::pluck('name', 'id');
 
-        return view('PermissionsUI::roles.edit', compact('role', 'permissions'));
+        return view('PermissionsUI::' . config('permission_ui.layout') . '.roles.edit', compact('role', 'permissions'));
     }
 
     public function update(Request $request, Role $role): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string'],
+            'name'        => ['required', 'string'],
             'permissions' => ['array'],
         ]);
 

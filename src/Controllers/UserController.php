@@ -14,14 +14,14 @@ class UserController extends Controller
     {
         $users = User::with('roles')->paginate();
 
-        return view('PermissionsUI::users.index', compact('users'));
+        return view('PermissionsUI::' . config('permission_ui.layout') . '.users.index', compact('users'));
     }
 
     public function edit(User $user): View
     {
         $roles = Role::pluck('name', 'id');
 
-        return view('PermissionsUI::users.edit', compact('user', 'roles'));
+        return view('PermissionsUI::' . config('permission_ui.layout') . '.users.edit', compact('user', 'roles'));
     }
 
     public function update(Request $request, User $user): RedirectResponse
