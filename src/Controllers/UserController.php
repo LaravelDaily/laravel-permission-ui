@@ -12,6 +12,8 @@ class UserController extends Controller
 {
     public function index(): View
     {
+        $this->authorize('user_list');
+
         $users = User::with('roles')->paginate();
 
         return view('PermissionsUI::' . config('permission_ui.layout') . '.users.index', compact('users'));
@@ -19,6 +21,8 @@ class UserController extends Controller
 
     public function edit(User $user): View
     {
+        $this->authorize('user_edit');
+
         $roles = Role::pluck('name', 'id');
 
         return view('PermissionsUI::' . config('permission_ui.layout') . '.users.edit', compact('user', 'roles'));
@@ -26,6 +30,8 @@ class UserController extends Controller
 
     public function update(Request $request, User $user): RedirectResponse
     {
+        $this->authorize('user_edit');
+
         $request->validate([
             'roles' => ['required', 'array'],
         ]);

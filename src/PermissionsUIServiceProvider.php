@@ -3,12 +3,19 @@
 namespace LaravelDaily\PermissionsUI;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelDaily\PermissionsUI\Commands\InstallCommand;
 
 class PermissionsUIServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/permission_ui.php', 'permission_ui');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                InstallCommand::class,
+            ]);
+        }
     }
 
     public function boot()
