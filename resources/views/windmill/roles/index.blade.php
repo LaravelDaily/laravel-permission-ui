@@ -33,8 +33,8 @@
                                     @endforeach
                                 </td>
                                 <td class="px-4 py-3 text-sm">{{ $role->created_at }}</td>
-                                <td class="px-4 divide-x-2">
-                                    <a class="px-4 py-2 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring" href="{{ route(config('permission_ui.route_name_prefix') . 'roles.edit', $role) }}">
+                                <td class="px-4 space-x-2">
+                                    <a class="px-4 py-2 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border-2 border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring" href="{{ route(config('permission_ui.route_name_prefix') . 'roles.edit', $role) }}">
                                         {{ __('PermissionsUI::permissions.global.edit') }}
                                     </a>
 

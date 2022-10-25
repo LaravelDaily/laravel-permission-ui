@@ -3,6 +3,14 @@
         {{ __('PermissionsUI::permissions.users.title') }}
     </x-slot>
 
+    @can('user_create')
+        <div class="mb-4 flex">
+            <a class="px-4 py-2 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring" href="{{ route(config('permission_ui.route_name_prefix') . 'users.create') }}">
+                {{ __('PermissionsUI::permissions.global.create') }}
+            </a>
+        </div>
+    @endcan
+
     <div class="p-4 bg-white rounded-lg shadow-xs">
         <div class="overflow-hidden mb-8 w-full rounded-lg border shadow-xs">
             <div class="overflow-x-auto w-full">
@@ -29,10 +37,22 @@
                                     @endforeach
                                 </td>
                                 <td class="px-4 py-3 text-sm">{{ $user->created_at }}</td>
-                                <td class="px-4 py-3 text-sm">
-                                    <a class="px-4 py-2 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring" href="{{ route(config('permission_ui.route_name_prefix') . 'users.edit', $user) }}">
-                                        {{ __('PermissionsUI::permissions.global.edit') }}
-                                    </a>
+                                <td class="px-4 space-x-2">
+                                    @can('user_edit')
+                                        <a class="px-4 py-2 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border-2 border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring" href="{{ route(config('permission_ui.route_name_prefix') . 'users.edit', $user) }}">
+                                            {{ __('PermissionsUI::permissions.global.edit') }}
+                                        </a>
+                                    @endcan
+
+                                    @can('user_delete')
+                                        <form action="{{ route(config('permission_ui.route_name_prefix') . 'users.destroy', $role) }}" method="POST" onsubmit="return confirm('{{ __('PermissionsUI::permissions.global.confirm_action') }}')" style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <x-primary-button>
+                                                {{ __('PermissionsUI::permissions.global.delete') }}
+                                            </x-primary-button>
+                                        </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach

@@ -40,6 +40,7 @@ return [
             'id'         => 'ID',
             'name'       => 'Name',
             'email'      => 'Email',
+            'password'   => 'Password',
             'roles'      => 'Roles',
             'created_at' => 'Created at',
             'updated_at' => 'Updated at',
