@@ -14,20 +14,20 @@ class PermissionController extends Controller
     {
         $permissions = Permission::all();
 
-        return view('PermissionsUI::permissions.index', compact('permissions'));
+        return view('PermissionsUI::' . config('permission_ui.layout') . '.permissions.index', compact('permissions'));
     }
 
     public function create(): View
     {
         $roles = Role::pluck('name', 'id');
 
-        return view('PermissionsUI::permissions.create', compact('roles'));
+        return view('PermissionsUI::' . config('permission_ui.layout') . '.permissions.create', compact('roles'));
     }
 
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'name' => ['required', 'string'],
+            'name'  => ['required', 'string'],
             'roles' => ['array'],
         ]);
 
@@ -42,13 +42,13 @@ class PermissionController extends Controller
     {
         $roles = Role::pluck('name', 'id');
 
-        return view('PermissionsUI::permissions.edit', compact('permission', 'roles'));
+        return view('PermissionsUI::' . config('permission_ui.layout') . '.permissions.edit', compact('permission', 'roles'));
     }
 
     public function update(Request $request, Permission $permission): RedirectResponse
     {
         $data = $request->validate([
-            'name' => ['required', 'string'],
+            'name'  => ['required', 'string'],
             'roles' => ['array'],
         ]);
 

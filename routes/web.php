@@ -14,5 +14,5 @@ Route::group([
     function () {
         Route::resource('roles', RoleController::class)->except('show');
         Route::resource('permissions', PermissionController::class)->except('show');
-        Route::resource('users', UserController::class)->only('index', 'edit', 'update');
+        Route::resource('users', UserController::class)->except('show');
     });

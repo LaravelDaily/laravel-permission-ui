@@ -11,35 +11,39 @@ return [
     ],
 
     'permissions' => [
-        'title'  => 'Permissions',
-        'fields' => [
+        'title'          => 'Permissions',
+        'title_singular' => 'Permission',
+        'fields'         => [
             'id'         => 'ID',
             'name'       => 'Name',
             'created_at' => 'Created at',
             'updated_at' => 'Updated at',
-        ]
+        ],
     ],
 
     'roles' => [
-        'title'  => 'Roles',
-        'fields' => [
+        'title'          => 'Roles',
+        'title_singular' => 'Role',
+        'fields'         => [
             'id'          => 'ID',
             'name'        => 'Name',
             'permissions' => 'Permissions',
             'created_at'  => 'Created at',
             'updated_at'  => 'Updated at',
-        ]
+        ],
     ],
 
     'users' => [
-        'title'  => 'Users',
-        'fields' => [
+        'title'          => 'Users',
+        'title_singular' => 'User',
+        'fields'         => [
             'id'         => 'ID',
             'name'       => 'Name',
             'email'      => 'Email',
+            'password'   => 'Password',
             'roles'      => 'Roles',
             'created_at' => 'Created at',
             'updated_at' => 'Updated at',
-        ]
+        ],
     ],
 ];
